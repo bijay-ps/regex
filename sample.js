@@ -12,7 +12,6 @@ function factorial(x) {
   }
 }
 
-// take input from the user
 const num = 5;
 
 // calling factorial() if num is positive
