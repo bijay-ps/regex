@@ -92,12 +92,36 @@ console.log(limitRegex.test(password))
 // inside a character set to create a negated character set in the form [^thingsThatWillNotBeMatched].
 // Outside of a character set, the caret is used to search for patterns at the beginning of strings.
 
+// Grouping is a powerful feature of regular expressions that 
+// can simplify a complex pattern. For example, you can use 
+// grouping to match repeated sequences of characters
+// In regex, any subpattern enclosed within the parentheses () 
+// is considered a group. For example, (xyz) creates a group 
+// that matches the exact sequence "xyz".
 
+const inputStr = "xyz yz xyzx xzy"
+const regexPattern = /(xyz)/g
+console.log(inputStr.match(regexPattern));
 
+// Positive Lookahead
+// Positive lookahead matches the pattern only if it's followed
+// or preceded by another pattern. They are denoted by the 
+// syntax x(?=y), wherein it says find x that is followed by y pattern.
+// You can think of it as a "followed by" pattern.
 
+const ipStr = "xyzabyxzbxyab";
+const plRegex = /x(?=y)/g
+console.log(ipStr.match(plRegex));
 
-
-
+// Negative Lookahead
+// Negative lookahead is the opposite of positive lookahead. It matches the
+// pattern only if it's not followed or preceded by another pattern. They are
+// denoted by the syntax x(?!y), wherein it says to find x that is not 
+// followed by y pattern.
+//You can think of it as a "not followed by" pattern.
+const nlStr = "xyzabyxzbxyab";
+const ngRegex = /x(?!y)/g
+console.log(nlStr.match(ngRegex));
 
 // 1. You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
 // 2. Usernames can only use alpha-numeric characters.
